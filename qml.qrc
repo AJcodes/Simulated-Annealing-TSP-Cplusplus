@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>Canvas.qml</file>
+        <file>CanvasForm.ui.qml</file>
+        <file>ColorUtils.js</file>
+        <file>TabViewStyle.qml</file>
+        <file>ButtonStyle.qml</file>
+        <file>TableForm.ui.qml</file>
+        <file>TableViewStyle.qml</file>
+        <file>ScrollArrow.qml</file>
+        <file>ScrollBar.qml</file>
+    </qresource>
+</RCC>
