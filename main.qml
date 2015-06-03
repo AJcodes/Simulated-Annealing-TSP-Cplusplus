@@ -36,6 +36,32 @@ ApplicationWindow {
         anchors.left: mainForm.right
         anchors.right: parent.right
         anchors.margins: 8
+
+        SpinBox {
+            x: 0
+            y: 60
+            width: 96
+            height: 32
+            decimals: 5
+            stepSize: 0.00001
+            style: SpinBoxStyle{}
+            minimumValue: 0.00001
+            maximumValue: 100000
+            value: 1
+        }
+
+        SpinBox {
+            x: 0
+            y: 145
+            width: 96
+            height: 32
+            decimals: 4
+            stepSize: 0.0001
+            style: SpinBoxStyle{}
+            minimumValue: 0.0001
+            maximumValue: 1
+            value: 0.9992;
+        }
     }
 
     Item {
@@ -81,26 +107,25 @@ ApplicationWindow {
         }
     }
 
-    Text {
-        id: text1
+    Label {
+        id: label1
         x: 696
-        y: 40
+        y: 37
         width: 96
-        height: 33
-        text: qsTr("Text")
+        height: 25
+        text: qsTr("Temperature")
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 12
     }
 
-    TextInput {
-        id: textInput1
+    Label {
+        id: label2
         x: 696
-        y: 80
+        y: 122
         width: 96
-        height: 33
-        text: qsTr("Text Input")
+        height: 25
+        text: qsTr("Cooling Rate")
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 12
+        verticalAlignment: Text.AlignVCenter
     }
 }

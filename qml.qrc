@@ -10,5 +10,7 @@
         <file>TableViewStyle.qml</file>
         <file>ScrollArrow.qml</file>
         <file>ScrollBar.qml</file>
+        <file>SpinBoxStyle.qml</file>
+        <file>TextFieldBackground.qml</file>
     </qresource>
 </RCC>

@@ -54,7 +54,8 @@ void Tsp::getBest() {
     clock_t time = clock();
 
     while (temp > absTemp) {
-        Route next = Route(0,curr.getRoute());
+        Route next = Route(1,curr.getRoute());
+        next.swap();
         delta = next.getDistance() - distance;
         if ((delta < 0) || (std::exp(-delta / temp) > (rand() % 1))) {
             curr = Route(1,next.getRoute());

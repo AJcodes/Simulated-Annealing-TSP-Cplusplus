@@ -11,7 +11,7 @@ class Route {
         Route(int, std::vector<City*>);
 
     public:
-        void refill(std::vector<City*>);
+        void swap();
         std::vector<City*> getRoute();
         City* getCity(int);
         void setCity(int, City*);

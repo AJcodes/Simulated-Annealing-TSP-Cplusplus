@@ -11,8 +11,13 @@ Route::Route(int val, vector<City*> vec_cities) {
         random_shuffle(this->cities.begin(), this->cities.end());
 }
 
-void Route::refill(vector<City*> vec_cities) {
-    this->cities.assign(vec_cities.begin(),vec_cities.end());
+void Route::swap() {
+    int pos1 = rand() % getSize();
+    int pos2 = rand() % getSize();
+    City * ct1 = getCity(pos1);
+    City * ct2 = getCity(pos2);
+    setCity(pos2, ct1);
+    setCity(pos1, ct2);
 }
 
 vector<City*> Route::getRoute() {
