@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>MainForm.ui.qml</file>
-        <file>Canvas.qml</file>
         <file>CanvasForm.ui.qml</file>
         <file>ColorUtils.js</file>
         <file>TabViewStyle.qml</file>

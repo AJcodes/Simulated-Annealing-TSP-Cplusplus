@@ -27,7 +27,15 @@ ApplicationWindow {
 
     MainForm {
         id: mainForm
+        anchors.rightMargin: 112
         anchors.fill: parent
+    }
+
+    Item {
+        anchors.top: parent.top
+        anchors.left: mainForm.right
+        anchors.right: parent.right
+        anchors.margins: 8
     }
 
     Item {
@@ -71,5 +79,28 @@ ApplicationWindow {
             messageDialog.text = caption;
             messageDialog.open();
         }
+    }
+
+    Text {
+        id: text1
+        x: 696
+        y: 40
+        width: 96
+        height: 33
+        text: qsTr("Text")
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignHCenter
+        font.pixelSize: 12
+    }
+
+    TextInput {
+        id: textInput1
+        x: 696
+        y: 80
+        width: 96
+        height: 33
+        text: qsTr("Text Input")
+        horizontalAlignment: Text.AlignHCenter
+        font.pixelSize: 12
     }
 }

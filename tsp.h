@@ -19,7 +19,9 @@ class Tsp : public QObject {
 
     signals:
         void sendToModel(int count, int x, int y);
-        void sendToCanvas(bool draw, int x, int y, int x1, int y1);
+        void sendToCanvas(int x, int y, int x1, int y1);
+        void sendToReset(int x, int y);
+        void sendToClear();
 
     public slots:
         void receiveFromQml(int, int, int);

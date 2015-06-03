@@ -32,6 +32,10 @@ void Tsp::receiveFromQml(int count, int x, int y) {
 }
 
 void Tsp::receiveFromQml() {
+    sendToClear();
+    for (int i = 0; i < vec_city.size(); i++) {
+        sendToReset(vec_city[i]->getX(), vec_city[i]->getY());
+    }
     getBest();
 }
 
@@ -69,9 +73,9 @@ void Tsp::getBest() {
 
     for (int i = 0; i < curr.getSize(); i++) {
         if (i + 1 == curr.getSize())
-            sendToCanvas(true, curr.getCity(i)->getX(), curr.getCity(i)->getY(), curr.getCity(0)->getX(), curr.getCity(0)->getY());
+            sendToCanvas(curr.getCity(i)->getX(), curr.getCity(i)->getY(), curr.getCity(0)->getX(), curr.getCity(0)->getY());
         else
-            sendToCanvas(true, curr.getCity(i)->getX(), curr.getCity(i)->getY(), curr.getCity(i+1)->getX(), curr.getCity(i+1)->getY());
+            sendToCanvas(curr.getCity(i)->getX(), curr.getCity(i)->getY(), curr.getCity(i+1)->getX(), curr.getCity(i+1)->getY());
     }
 }
 
