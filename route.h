@@ -2,6 +2,7 @@
 #define ROUTE
 
 #include "city.h"
+#include <QString>
 #include <stdlib.h>
 #include <stdio.h>
 #include <vector>
@@ -17,7 +18,7 @@ class Route {
         void setCity(int, City*);
         int getDistance();
         int getSize();
-        void print();
+        QString print();
 
     private:
         int n;

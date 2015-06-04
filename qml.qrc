@@ -12,5 +12,7 @@
         <file>ScrollBar.qml</file>
         <file>SpinBoxStyle.qml</file>
         <file>TextFieldBackground.qml</file>
+        <file>TextFieldStyle.qml</file>
+        <file>TextAreaStyle.qml</file>
     </qresource>
 </RCC>

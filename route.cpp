@@ -44,10 +44,16 @@ int Route::getSize() {
     return this->cities.size();
 }
 
-void Route::print() {
-    for (int i = 0; i < getSize(); i++)
-        cout << this->cities[i]->getID() << "->";
+QString Route::print() {
+    QString result;
+    for (int i = 0; i < getSize(); i++) {
+        //cout << this->cities[i]->getID() << "->";
+        result.append(QString::number(this->cities[i]->getID()));
+        result.append(" -> ");
+    }
+    result.append(QString::number(this->cities[0]->getID()));
+    return result;
 
-    cout << this->cities[0]->getID() << endl;
+    //cout << this->cities[0]->getID() << endl;
 }
 
