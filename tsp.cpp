@@ -46,7 +46,7 @@ void Tsp::getBest() {
     double coolRate = 0.9992;
     double absTemp = 0.0001;
 
-    Route curr = Route(1, vec_city);
+    Route curr = Route(vec_city);
     double distance = curr.getDistance();
     cout << "Initial Distance: " << curr.getDistance() << endl;
     curr.print();
@@ -54,11 +54,11 @@ void Tsp::getBest() {
     clock_t time = clock();
 
     while (temp > absTemp) {
-        Route next = Route(1,curr.getRoute());
+        Route next = Route(curr.getRoute());
         next.swap();
         delta = next.getDistance() - distance;
         if ((delta < 0) || (std::exp(-delta / temp) > (rand() % 1))) {
-            curr = Route(1,next.getRoute());
+            curr = Route(next.getRoute());
             distance = delta + distance;
         }
         temp *= coolRate;

@@ -5,10 +5,8 @@
 
 using namespace std;
 
-Route::Route(int val, vector<City*> vec_cities) {
+Route::Route(vector<City*> vec_cities) {
     this->cities = vec_cities;
-    if (val == 0)
-        random_shuffle(this->cities.begin(), this->cities.end());
 }
 
 void Route::swap() {

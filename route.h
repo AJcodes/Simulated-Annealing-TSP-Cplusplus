@@ -8,7 +8,7 @@
 
 class Route {
     public:
-        Route(int, std::vector<City*>);
+        Route(std::vector<City*>);
 
     public:
         void swap();
