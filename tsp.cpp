@@ -33,7 +33,7 @@ void Tsp::receiveFromQml(int count, int x, int y) {
 
 void Tsp::receiveFromQml() {
     sendToClear();
-    for (int i = 0; i < vec_city.size(); i++) {
+    for (unsigned int i = 0; i < vec_city.size(); i++) {
         sendToReset(vec_city[i]->getX(), vec_city[i]->getY());
     }
     getBest();
@@ -44,7 +44,7 @@ void Tsp::getBest() {
     double temp = 1.0;
     double delta = 0;
     double coolRate = 0.9992;
-    double absTemp = 0.00001;
+    double absTemp = 0.0001;
 
     Route curr = Route(1, vec_city);
     double distance = curr.getDistance();
