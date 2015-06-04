@@ -14,10 +14,7 @@ Route::Route(int val, vector<City*> vec_cities) {
 void Route::swap() {
     int pos1 = rand() % getSize();
     int pos2 = rand() % getSize();
-    City * ct1 = getCity(pos1);
-    City * ct2 = getCity(pos2);
-    setCity(pos2, ct1);
-    setCity(pos1, ct2);
+    iter_swap(this->cities.begin() + pos1, this->cities.begin() + pos2);
 }
 
 vector<City*> Route::getRoute() {
@@ -33,18 +30,15 @@ void Route::setCity(int index, City* city) {
 }
 
 int Route::getDistance() {
-    //if (this->distance == 0) {
-        int routeDist = 0;
-        for (int i = 0; i < getSize(); i++) {
-            City* from = getCity(i);
-            City* to = getCity(0);
-            if (i + 1 < getSize())
-                to = getCity(i + 1);
-
-            routeDist += from->distance(to);
-        }
-        this->distance = routeDist;
-    //}
+    int routeDist = 0;
+    for (int i = 0; i < getSize(); i++) {
+        City* from = getCity(i);
+        City* to = getCity(0);
+        if (i + 1 < getSize())
+            to = getCity(i + 1);
+        routeDist += from->distance(to);
+    }
+    this->distance = routeDist;
     return this->distance;
 }
 
