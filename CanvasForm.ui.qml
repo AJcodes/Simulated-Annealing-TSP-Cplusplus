@@ -64,6 +64,7 @@ Item {
                 ctx.arc(x, y, 5, 0, Math.PI*2, true);
                 ctx.closePath();
                 ctx.fill();
+                myCanvas.requestPaint();
             }
 
             function reset() {
@@ -71,7 +72,7 @@ Item {
                 ctx.clearRect(0,0,myCanvas.width, myCanvas.height);
                 prevX = 0;
                 prevY = 0;
-                myCanvas.requestPaint()
+                myCanvas.requestPaint();
             }
         }
 
