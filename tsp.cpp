@@ -33,7 +33,6 @@ void Tsp::receiveFromQml(int count, int x, int y) {
     sendToModel(ct->getID(), ct->getX(), ct->getY());
 }
 
-<<<<<<< HEAD
 void Tsp::receiveFromQmlFile(QString string) {
     string.remove(0,8);
     cout << string.toStdString() << endl;
@@ -69,9 +68,6 @@ void Tsp::receiveFromQmlFile(QString string) {
 void Tsp::receiveFromQml1(double temp, double absTemp, double coolRate) {
     if (this->vec_city.empty())
         return;
-=======
-void Tsp::receiveFromQml1(double temp, double absTemp, double coolRate) {
->>>>>>> origin/master
     sendToClear();
     this->temp = temp;
     this->absTemp = absTemp;

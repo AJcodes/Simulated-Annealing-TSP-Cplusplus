@@ -17,16 +17,10 @@ ApplicationWindow {
             id: fileDialog
             title: "Choose a file"
             nameFilters: [ "Data files (*.xlsx *.csv *.txt)", "All files (*)" ]
-<<<<<<< HEAD
             selectedNameFilter: "Data files (*.xlsx *.csv *.txt)"
             onAccepted: {
                 //console.log("Accepted: " + fileUrls)
                 receiver.receiveFromQmlFile(fileUrls)
-=======
-            selectedNameFilter: "All files (*)"
-            onAccepted: {
-                console.log("Accepted: " + fileUrls)
->>>>>>> origin/master
             }
             onRejected: { console.log("Rejected") }
         }

@@ -26,10 +26,7 @@ class Tsp : public QObject {
 
     public slots:
         void receiveFromQml(int, int, int);
-<<<<<<< HEAD
         void receiveFromQmlFile(QString);
-=======
->>>>>>> origin/master
         void receiveFromQml1(double, double, double);
 
     private:
