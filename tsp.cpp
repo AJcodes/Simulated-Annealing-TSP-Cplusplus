@@ -77,7 +77,7 @@ void Tsp::receiveFromQml1(double temp, double absTemp, double coolRate) {
     for (unsigned int i = 0; i < vec_city.size(); i++) {
         sendToReset(vec_city[i]->getX(), vec_city[i]->getY());
     }
-    Anneal2();
+    Anneal();
 }
 
 void Tsp::Anneal() {
