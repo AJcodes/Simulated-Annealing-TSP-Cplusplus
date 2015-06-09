@@ -18,6 +18,10 @@ class Route {
         void setCity(int, City*);
         int getDistance();
         int getSize();
+        double transportCost(int[]);
+        double reverseCost(int[]);
+        void transport(int[]);
+        void reverse(int[]);
         QString print();
 
     private:

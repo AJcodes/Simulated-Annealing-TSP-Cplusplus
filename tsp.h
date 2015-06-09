@@ -15,6 +15,7 @@ class Tsp : public QObject {
         City* getCity(int);
         int getTotalCities();
         void Anneal();
+        void Anneal2();
 
     signals:
         void sendToModel(int count, int x, int y);
@@ -31,6 +32,7 @@ class Tsp : public QObject {
 
     private:
         std::vector<City*> vec_city;
+        int nn, succ, over, limit;
         double temp;
         double absTemp;
         double coolRate;

@@ -8,6 +8,8 @@
 
 using namespace std;
 
+static int n[7];
+
 Tsp::Tsp(QObject *parent) : QObject(parent) {
 
 }
@@ -75,7 +77,7 @@ void Tsp::receiveFromQml1(double temp, double absTemp, double coolRate) {
     for (unsigned int i = 0; i < vec_city.size(); i++) {
         sendToReset(vec_city[i]->getX(), vec_city[i]->getY());
     }
-    Anneal();
+    Anneal2();
 }
 
 void Tsp::Anneal() {
@@ -120,5 +122,58 @@ void Tsp::Anneal() {
     }
     sendToResults(init, distance, it, s);
     sendToText(curr.print());
+}
+
+void Tsp::Anneal2() {
+    Route curr = Route(vec_city);
+    double distance = curr.getDistance();
+    double init = distance;
+    double delta = 0;
+    int ncity = getTotalCities();
+    double t = 0.5;
+    double cR = 0.9;
+    over = 100 * ncity;
+    limit = 10 * ncity;
+    int check;
+    for (int i = 1; i <= 100; i++) {
+        succ = 0;
+        for (int j = 1; j <= over; j++) {
+            do {
+                n[1] = 1 + (ncity * (rand() % 1));
+                n[2] = 1 + ((ncity - 1) * (rand() % 1));
+                if (n[2] >= n[1])
+                    ++n[2];
+                nn = 1 + ((n[1]-n[2]+ncity-1) % ncity);
+            } while (nn < 3);
+            check = rand() % 1;
+            if (check == 0) {
+                n[3] = n[2] + (abs(nn - 2) * (rand() % 1)) + 1;
+                n[3] = 1 + ((n[3] - 1) % ncity);
+                delta = curr.transportCost(n);
+                if (delta < 0 || std::exp(-delta / t) > (rand() % 1)) {
+                    ++succ;
+                    distance = delta + distance;
+                    curr.transport(n);
+                }
+            }
+            else {
+                delta = curr.reverseCost(n);
+                cout << delta << endl;
+                if (delta < 0 || std::exp(-delta / t) > (rand() % 1)) {
+                    ++succ;
+                    distance = delta + distance;
+                    curr.reverse(n);
+                }
+            }
+            if (succ >= limit)
+                break;
+        }
+        cout << "Initial Distance: " << init << endl;
+        cout << "Final Distance: " << distance << endl;
+        t *= cR;
+        if (succ == 0)
+            return;
+    }
+
 }
 
